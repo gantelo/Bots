@@ -19,7 +19,7 @@ function buildIT() {
     markov.buildCorpus()
         .then(() => {
             markov.generateSentence({
-               options
+                options
             })
                 .then(shorterTweet => {
                     //shorterTweet.string += getrandomSigno();
@@ -29,7 +29,8 @@ function buildIT() {
                     console.log("Macri: " + shorterTweet.string);
                 })
         });
+    setTimeout(buildIT, Math.random() * (18000000 - 940000) + 940000);
 };
 
-//buildIT();
-setInterval(buildIT, Math.random() * (18000000 - 940000) + 940000);
+buildIT();
+    //setInterval(buildIT, Math.random() * (18000000 - 940000) + 940000);

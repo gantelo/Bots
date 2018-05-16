@@ -29,7 +29,8 @@ function buildIT() {
                     console.log("Horoscopo: " + shorterTweet.string);
                 })
         });
+    setTimeout(buildIT, Math.random() * (18000000 - 940000) + 940000);
 };
 
-//buildIT();
-setInterval(buildIT, Math.random() * (18000000 - 940000) + 940000);//1440000);
+buildIT();
+    //setInterval(buildIT, Math.random() * (18000000 - 940000) + 940000);
