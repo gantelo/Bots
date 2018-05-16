@@ -4,7 +4,7 @@ const Ts = require('./keys');
 const fs = require('fs');
 const Markov = require('markov-strings');
 
-let texto_base = fs.readFileSync('lilita.txt', 'utf-8');
+let texto_base = fs.readFileSync('Macri/cucurucho.txt', 'utf-8');
 texto_base = texto_base.split('\n');
 
 const options = {
@@ -19,17 +19,17 @@ function buildIT() {
     markov.buildCorpus()
         .then(() => {
             markov.generateSentence({
-                maxLength: 140
+               options
             })
                 .then(shorterTweet => {
                     //shorterTweet.string += getrandomSigno();
-                    /*T.post('statuses/update', { status: shorterTweet.string }, function (err, data, response) {
+                    Ts.t.post('statuses/update', { status: shorterTweet.string }, function (err, data, response) {
                         ;
-                    });*/
-                    console.log(shorterTweet.string);
+                    });
+                    console.log("Macri: " + shorterTweet.string);
                 })
         });
 };
 
-buildIT();
-setInterval(buildIT, 1040000);
+//buildIT();
+setInterval(buildIT, Math.random() * (18000000 - 940000) + 940000);

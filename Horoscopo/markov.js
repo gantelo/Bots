@@ -4,7 +4,7 @@ const Ts = require('./keys');
 const fs = require('fs');
 const Markov = require('markov-strings');
 
-let texto_base = fs.readFileSync('lineas_horoscopo.txt', 'utf-8');
+let texto_base = fs.readFileSync('Horoscopo/lineas_horoscopo.txt', 'utf-8');
 texto_base = texto_base.split('\n');
 
 const options = {
@@ -23,13 +23,13 @@ function buildIT() {
             })
                 .then(shorterTweet => {
                     shorterTweet.string += f.signos();
-                    /*T.post('statuses/update', { status: shorterTweet.string }, function (err, data, response) {
+                    Ts.t.post('statuses/update', { status: shorterTweet.string }, function (err, data, response) {
                         ;
-                    });*/
-                    console.log(shorterTweet.string);
+                    });
+                    console.log("Horoscopo: " + shorterTweet.string);
                 })
         });
 };
 
 //buildIT();
-setInterval(buildIT, 1440000);
+setInterval(buildIT, Math.random() * (18000000 - 940000) + 940000);//1440000);
