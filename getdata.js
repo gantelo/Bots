@@ -16,7 +16,7 @@ function getData() {
 			return;
 		}
 		Ts.t.get('statuses/user_timeline', {
-			screen_name: 'MiHoroscopoEs',
+			screen_name: 'mauriciomacri',
 			count: 200, max_id: last_id - 101,
 			exclude_replies: true, include_rts: false, trim_user: true, tweet_mode: 'extended'
 		}, function (err, tweets, response) {
@@ -31,7 +31,7 @@ function getData() {
 				last_id = tweets[tweets.length - 1].id;
 				tweets = tweets.map(d => d.full_text);
 				tweets = tweets.map(d => d.replace(/(@\S+)/gi, '').trim());
-				tweets = tweets.map(d => d.replace(/(#\S+)/gi, '').trim());
+				//tweets = tweets.map(d => d.replace(/(#\S+)/gi, '').trim());
 				console.log(n);
 				getNextBatch(n - 1, last_id, arr.concat(tweets));
 			}

@@ -7,11 +7,11 @@ let getrandomSigno = function () {
 
 
 function getRandomArroba() {
-	let listaArrobas = ['Bufarra', 'Bufarreta', 'Bufarrón', 'Sopapa', 'Comeniños', 'Pimentero', 'Bayoneta', 'Sacacorcho', 'Cucurucho', 'Banderín', 'Chupete',
-		'Fafa', 'Falopa', 'Merca', 'MagiaBlanca', 'Pala'];
+	let listaArrobas = ['Pelotudo', 'Infeliz', 'idiota', 'tarado', 'conchudo', 'forro', 'retrasado'];
 	listaArrobas = listaArrobas.map(d => '#' + d);
 	return listaArrobas[Math.floor(Math.random() * listaArrobas.length)];
 }
+
 
 exports.signos = getrandomSigno;
 exports.arroba = getRandomArroba;
