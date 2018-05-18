@@ -4,7 +4,7 @@ const Ts = require('./keys');
 const fs = require('fs');
 const Markov = require('markov-strings');
 
-let texto_base = fs.readFileSync('ivomaxi.txt', 'utf-8');
+let texto_base = fs.readFileSync('IvoMaxi/ivomaxi.txt', 'utf-8');
 texto_base = texto_base.split('\n');
 
 const options = {
