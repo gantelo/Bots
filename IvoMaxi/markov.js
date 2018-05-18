@@ -4,14 +4,13 @@ const Ts = require('./keys');
 const fs = require('fs');
 const Markov = require('markov-strings');
 
-let texto_base = fs.readFileSync('Horoscopo/lineas_horoscopo.txt', 'utf-8');
+let texto_base = fs.readFileSync('ivomaxi.txt', 'utf-8');
 texto_base = texto_base.split('\n');
 
 const options = {
-    maxLength: 160,
-    minWords: 12,
-    minScore: 14,
-	minScorePerWord: 12
+    maxLength: 140,
+    minWords: 10,
+    minScore: 25
 };
 
 const markov = new Markov(texto_base, options);
@@ -20,17 +19,17 @@ function buildIT() {
     markov.buildCorpus()
         .then(() => {
             markov.generateSentence({
-                maxLength: 160 - 15
+                options
             })
                 .then(shorterTweet => {
-                    shorterTweet.string += f.signos();
+                    //shorterTweet.string += getrandomSigno();
                     Ts.t.post('statuses/update', { status: shorterTweet.string }, function (err, data, response) {
                         ;
                     });
-                    console.log("Horoscopo: " + shorterTweet.string);
+                    console.log("IvoMaxi: " + shorterTweet.string);
                 })
         });
-    setTimeout(buildIT, Math.random() * (1800000 - 940000) + 940000);
+    setTimeout(buildIT, Math.random() * 940000);
 };
 
 buildIT();

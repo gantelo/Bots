@@ -16,9 +16,9 @@ function getData() {
 			return;
 		}
 		Ts.t.get('statuses/user_timeline', {
-			screen_name: 'mauriciomacri',
+			screen_name: 'IvoElbert',
 			count: 200, max_id: last_id - 101,
-			exclude_replies: true, include_rts: false, trim_user: true, tweet_mode: 'extended'
+			exclude_replies: true, include_rts: true, trim_user: true, tweet_mode: 'extended'
 		}, function (err, tweets, response) {
 			if (err || tweets.length == 0) {
 				console.log("Salió con error.");
@@ -30,7 +30,7 @@ function getData() {
 				console.log("len: " + tweets.length);
 				last_id = tweets[tweets.length - 1].id;
 				tweets = tweets.map(d => d.full_text);
-				tweets = tweets.map(d => d.replace(/(@\S+)/gi, '').trim());
+				//tweets = tweets.map(d => d.replace(/(@\S+)/gi, '').trim());
 				//tweets = tweets.map(d => d.replace(/(#\S+)/gi, '').trim());
 				console.log(n);
 				getNextBatch(n - 1, last_id, arr.concat(tweets));
