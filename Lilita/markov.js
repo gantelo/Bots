@@ -29,7 +29,7 @@ function buildIT() {
                     console.log("Lilita: " + shorterTweet.string);
                 })
         });
-    setTimeout(buildIT, Math.random() * (1800000 - 940000) + 940000);
+    setTimeout(buildIT, Math.random() * (18000000  - 3600000) + 3600000);
 };
 
 buildIT();
