@@ -1,7 +1,7 @@
 const fs = require("fs");
 const Twit = require("twit");
 const f = require('./Funciones/funcs');
-const Ts = require('./Macri/keys');
+const Ts = require('./Lilita/keys');
 
 function getData() {
 	var last_id = 999999999999999999;
@@ -16,7 +16,7 @@ function getData() {
 			return;
 		}
 		Ts.t.get('statuses/user_timeline', {
-			screen_name: 'IvoElbert',
+			screen_name: 'elisacarrio',
 			count: 200, max_id: last_id - 101,
 			exclude_replies: true, include_rts: true, trim_user: true, tweet_mode: 'extended'
 		}, function (err, tweets, response) {
