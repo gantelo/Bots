@@ -1,22 +1,20 @@
 # Bots
 
-Corriendo 'node getData.js' obtiene los 3200 tweets de cierta persona solamente cambiando el nombre de usuario 'twitter.com/{usuario}'
+Run 'node getData.js' to get the latest 3200 tweets from a twitter user: 'twitter.com/{userName}'
 
-Ejemplo:
-Cambiar la siguiente línea:
+E.G.:
+Lookup for this line
     
     screen_name: 'elisacarrio',
 
-estas líneas en getData.js sirven para reemplazar los @ y los # por lo que se quiera, usar a discreción.
+In getData.js we have two Regex to replace every @ and # from the results
 
     tweets = tweets.map(d => d.replace(/(@\S+)/gi, '').trim());
     tweets = tweets.map(d => d.replace(/(#\S+)/gi, '').trim());
 
 ##########################################################################################
 
-Lo único que faltan son archivos "keys.js" en cada carpeta de cada bot e.g. '/Macri/keys.js'
-
-Donde dentro lo que se necesitan son las api keys para armar tu propio bot de twitter.
+Now you need to replace the keys on each BOT's folder. Make sure you use your API keys and don't share them!
 
 ##########################################################################################
     
